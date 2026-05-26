@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}User Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/user_dashboard.css">
+</head>
+
+<body>
+
+    <header
+        style="display: flex; justify-content: space-between; align-items: center; background-color: #ade2f7; padding: 10px 20px;">
+
+        <div style="flex: 1;">Welcome to User</div>
+
+        <nav style="flex: 1; text-align: center;">
+            <a href="{{ url_for('main_routes.user_dashboard') }}" style="margin: 0 10px;">Home</a>
+            <a href="{{ url_for('main_routes.user_summary') }}" style="margin: 0 10px;">Summary</a>
+            <a href="{{ url_for('main_routes.logout') }}" style="margin: 0 10px;">Log Out</a>
+        </nav>
+
+        <div style="flex: 1; text-align: right;">
+            <a href="{{ url_for('main_routes.edit_profile') }}"
+                style="padding: 6px 12px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
+                Edit/View Profile
+            </a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+
+</html>

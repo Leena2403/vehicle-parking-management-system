@@ -1,0 +1,59 @@
+{% extends "base_user.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px; text-align: center;">
+    View/Edit Profile
+</h3>
+
+<form method="POST" style="max-width: 600px; margin: auto;">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" style="margin: 10px 0;">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <table border="1" cellpadding="5" style="width: 100%;">
+        <tr>
+            <td>Full Name:</td>
+            <td><input type="text" name="full_name" value="{{ user.full_name }}" required></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email" value="{{ user.email }}" required></td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" value="{{ user.user_name }}" readonly></td>
+        </tr>
+        <tr>
+            <td>New Password:</td>
+            <td><input type="password" name="password" placeholder="Leave blank to keep current password"></td>
+        </tr>
+    </table>
+
+    <br>
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        <button type="submit" style="background-color: rgb(34, 127, 150); color: white; padding: 5px;">
+            Update Profile
+        </button>
+        <a href="{{ url_for('main_routes.user_dashboard') }}">
+            <button type="button">Cancel</button>
+        </a>
+    </div>
+</form>
+
+<form method="POST" action="{{ url_for('main_routes.delete_user') }}"
+    onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');"
+    style="text-align: center; margin-top: 20px;">
+    <input type="hidden" name="user_id" value="{{ user.id }}">
+    <button type="submit"
+        style="background-color: red; color: white; padding: 6px 12px; border: none; border-radius: 4px;">
+        Delete My Account
+    </button>
+</form>
+{% endblock %}

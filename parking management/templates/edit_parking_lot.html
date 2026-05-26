@@ -1,0 +1,44 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px; text-align: center;">
+    Edit Parking Lot
+</h3>
+
+<form action="{{ url_for('main_routes.edit_parking_lot', lot_id=lot.id) }}" method="POST">
+
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Prime Location Name:</td>
+            <td><input type="text" name="location_name" value="{{ lot.prime_location_name }}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="address" value="{{ lot.address }}"></td>
+        </tr>
+        <tr>
+            <td>Pin Code:</td>
+            <td><input type="number" name="pin_code" value="{{ lot.pin_code }}"></td>
+        </tr>
+        <tr>
+            <td>Price (per hour):</td>
+            <td><input type="number" name="price" value="{{ lot.price }}"></td>
+        </tr>
+        <tr>
+            <td>Maximum Spots:</td>
+            <td><input type="number" name="max_spot" value="{{ lot.maximum_number_of_spots }}"></td>
+        </tr>
+    </table>
+
+    <br>
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        <button type="submit" style="background-color: rgb(34, 127, 150); color: white; padding: 5px;">Update</button>
+        <a href="{{ url_for('main_routes.admin_home') }}">
+        <button type="button">Cancel</button>
+    </a>
+    </div>
+</form>
+{% endblock %}

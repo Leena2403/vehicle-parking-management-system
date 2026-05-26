@@ -1,0 +1,40 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px; text-align: center;">
+    New Parking Lot
+</h3>
+
+<form action="{{ url_for('main_routes.add_lot') }}" method="POST">
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Prime Location Name:</td>
+            <td><input type="text" name="location_name"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="address"></td>
+        </tr>
+        <tr>
+            <td>Pin Code:</td>
+            <td><input type="number" name="pin_code"></td>
+        </tr>
+        <tr>
+            <td>Price (per hour):</td>
+            <td><input type="number" name="price"></td>
+        </tr>
+        <tr>
+            <td>Maximum Spots:</td>
+            <td><input type="number" name="max_spot"></td>
+        </tr>
+    </table>
+
+    <br>
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        <button type="submit" style="background-color: rgb(34, 127, 150); color: white; padding: 5px;">Add</button>
+        <button type="button">Cancel</button>
+    </div>
+</form>
+{% endblock %}

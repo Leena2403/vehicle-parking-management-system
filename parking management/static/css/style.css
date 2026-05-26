@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", serif;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+
+#book-parking-button button{
+    cursor: pointer;
+}
+
+.header-section {
+    height: 100px;
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1rem;
+}
+
+/* logo */
+.header-section #brand {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.header-section #brand img {
+    height: 75%;
+}
+
+.header-section nav ul {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-section nav ul li {
+    list-style: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.header-section #book-parking-button button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* car image */
+.car-section {
+    max-width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    gap: 2rem;
+    padding: 0.6rem;
+}
+
+/* text 1 */
+.car-section #announcement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    min-width: 50%;
+    text-align: left;
+}
+
+.car-section #announcement #announcement-heading {
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.car-section #announcement #announcement-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.car-section #announcement .announcement-action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.car-section #announcement .announcement-action-buttons a {
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+}
+
+.car-section #canvas-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-section #canvas-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.features-container {
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.features-container #features-heading {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin: 10px;
+    padding: 10px;
+}
+
+.features-container #features-description {
+    max-width: 60%;
+    margin: auto;
+    font-weight: 500;
+    font-size: large;
+}
+
+.features-container #cards-grid {
+    max-width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.features-container #cards-grid .feature-card {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 2rem 1rem;
+    margin: 1rem 2rem;
+    border-radius: 10px;
+    color: white;
+}
+
+.features-container #cards-grid .feature-card {
+    background-color: #4a90e2;
+}
+
+
+.testimonials .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    gap: 1.5rem;
+}
+.testimonials #testimonial-heading{
+    padding: 10px;
+    margin: 10px;
+}
+
+.testimonials .testimonials-grid .testimonial-card {
+    border: 1px solid black;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+.testimonials .testimonials-grid .testimonial-card .user-comment {
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.testimonials .testimonials-grid .testimonial-card .user-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.testimonials .testimonials-grid .testimonial-card .user-about {
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.about-us-container{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    height: 40vh;
+}
+.about-us-container .newsletter-image{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+.about-us-container .newsletter-image img{
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.about-us-container .newsletter-content #get-user-mail{
+    margin-bottom: 2rem;
+}
+
+
+footer{
+    margin-top: 2rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+footer .bottom-footer p{
+    font-size: 1rem;
+    font-weight: 200;
+}

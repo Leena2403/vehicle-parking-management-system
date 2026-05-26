@@ -1,0 +1,104 @@
+{% extends "base_user.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<h3>Recent Parking History</h3>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}" role="alert" style="margin: 10px auto; max-width: 600px;">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Vehicle No.</th>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if reservations %}
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>
+                    {% if reservation.spot and reservation.spot.parking_lot %}
+                    {{ reservation.spot.parking_lot.address }}
+                    {% else %}
+                    (Deleted Spot)
+                    {% endif %}
+                    
+                </td>
+
+                <td>{{ reservation.vehicle_number }}</td>
+                <td>{{ reservation.parking_timestamp.strftime("%Y-%m-%d %H:%M") }}</td>
+                <td>
+                    {% if reservation.status == 'Active' %}
+                    <a href="{{ url_for('main_routes.release_spot', reservation_id=reservation.id) }}">
+                        <button>Release</button>
+                    </a>
+                    {% else %}
+                    Parked Out
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="5">No reservations yet.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<h3>Parking Lots</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Address</th>
+            <th>Price (Per Hour)</th>
+            <th>Availability</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lot in lots %}
+        <tr>
+            <td>{{ lot.id }}</td>
+            <td>{{ lot.address }}</td>
+            <td>{{ lot.price }}</td>
+            <td>
+                {{
+                lot.spots | selectattr("status", "equalto", "A") | list | length
+                }} / {{ lot.maximum_number_of_spots }}
+            </td>
+            <td>
+                <form action="{{ url_for('main_routes.show_book_form', lot_id=lot.id) }}" method="GET"
+                    style="display:inline;">
+                    <button type="submit">Book</button>
+                </form>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

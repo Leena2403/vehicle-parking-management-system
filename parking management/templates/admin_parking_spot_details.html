@@ -1,0 +1,56 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Parking Spot Details{% endblock %}
+
+{% block content %}
+<h3 class="text-center bg-primary text-white py-2">Parking Spot Details</h3>
+
+<div class="container mt-4">
+    <h5>Spot ID: {{ spot.id }}</h5>
+    <p>Status: {{ spot.status }}</p>
+    <p>Lot ID: {{ spot.lot_id }}</p>
+
+    <hr>
+
+    <h5>Reservation History</h5>
+
+    {% if reservations %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>User</th>
+                <th>Vehicle No.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Status</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in reservations %}
+            <tr>
+                <td>{{ res.id }}</td>
+                <td>{{ res.user.full_name }}</td>
+                <td>{{ res.vehicle_number }}</td>
+                <td>{{ res.parking_timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>
+                    {% if res.leaving_timestamp %}
+                        {{ res.leaving_timestamp.strftime('%Y-%m-%d %H:%M') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>{{ res.status }}</td>
+                <td>₹{{ res.parking_cost }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No reservations found for this spot.</p>
+    {% endif %}
+
+    <a href="{{ url_for('main_routes.admin_home') }}" class="btn btn-secondary mt-3">Close</a>
+</div>
+{% endblock %}

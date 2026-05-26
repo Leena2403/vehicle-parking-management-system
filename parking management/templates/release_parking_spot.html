@@ -1,0 +1,38 @@
+{% extends "base_user.html" %}
+{% block title %}Release Spot{% endblock %}
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px;">Release the Parking Spot</h3>
+
+<form action="{{ url_for('main_routes.confirm_release') }}" method="POST">
+    <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Spot ID:</td>
+            <td><input type="text" name="spot_id" value="{{ reservation.spot_id }}" readonly></td>
+        </tr>
+        <tr>
+            <td>Vehicle Number:</td>
+            <td><input type="text" name="vehicle_number" value="{{ reservation.vehicle_number }}" readonly></td>
+        </tr>
+        <tr>
+            <td>Parking Time:</td>
+            <td><input type="text" name="parking_time" value="{{ reservation.parking_timestamp }}" readonly></td>
+        </tr>
+        <tr>
+            <td>Releasing Time:</td>
+            <td><input type="text" name="releasing_time" value="{{ releasing_time.strftime('%Y-%m-%d %H:%M:%S') }}" readonly>
+</td>
+        </tr>
+        <tr>
+            <td>Total Cost:</td>
+            <td><input type="text" name="total_cost" value="{{ cost }}" readonly></td>
+        </tr>
+    </table>
+
+    <br>
+    <button type="submit" style="background-color: rgb(34, 127, 150); color: white; padding: 5px;">Release</button>
+    <a href="{{ url_for('main_routes.user_dashboard') }}">
+        <button type="button">Cancel</button>
+    </a>
+</form>
+{% endblock %}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Parking Company</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+    <header class="header-section">
+        <a href="{{ url_for('main_routes.default') }}" id="brand">
+            <img src="/static/images/brand logo.png" alt="Brand Logo" id="brand-logo">
+        </a>
+
+        <nav>
+            <ul>
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;"></div>
+
+                <a href="{{ url_for('main_routes.signup') }}" id="sign-up"
+                    style="padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; text-decoration: none; color: #fbfbfb; background-color: #0e72be;">Sign
+                    Up</a>
+                <a href="{{ url_for('main_routes.login') }}" id="log-in"
+                    style="padding: 6px 12px; border: 1px solid #000000; border-radius: 4px; text-decoration: none; color: #ffffff; background-color: #0f843e;">Log
+                    In</a>
+                </div>
+
+            </ul>
+        </nav>
+
+        <!-- <a href="book_parking.html" id="book-parking-button">
+            <button>Book Parking</button>
+        </a> -->
+
+    </header>
+
+
+    <div class="car-section">
+        <div id="announcement">
+            <h2 id="announcement-heading">
+                Seamless Parking Expereince for Car Owners
+            </h2>
+            <p id="announcement-text">
+                Our innovative platform offers a smart and hassle-free parking experience, making it easier than ever to
+                find and reserve parking spots. Join us on a journey to simplify urban mobility and make every trip
+                smoother and more convenient.
+            </p>
+        </div>
+
+        <div id="canvas-image">
+            <img src="/static/images/canvas image.jpg" alt="Canvas Image">
+        </div>
+    </div>
+    <hr>
+
+    <div class="features-container">
+        <h2 id="features-heading">
+            Our Competitive Advantage
+        </h2>
+        <p id="features-description">
+            Our competitive advantage is a smart, secure, and hassle-free parking experience powered by real-time
+            availability, easy reservations, and seamless access—helping drivers save time and park with confidence.
+        </p>
+
+        <div id="cards-grid">
+            <!-- Card begins here: -->
+            <div class="feature-card" id="personalised-learning">
+                <h3 class="feature-name">
+                    Superior Service
+                </h3>
+                <p class="feature-details">
+                    Our extensive experience and deep insight of car parking dynamics helps us to improve customer
+                    experience
+                </p>
+            </div>
+            <!-- Card ends here! -->
+            <!-- Card begins here: -->
+            <div class="feature-card" id="innovative-technology">
+                <h3 class="feature-name">
+                    Innovative Technology
+                </h3>
+                <p class="feature-details">
+                    Secure Parking has established SecureTech, the in-house state-of-art technology division for
+                    continuous innovation in products & services
+                </p>
+            </div>
+            <!-- Card ends here! -->
+            <!-- Card begins here: -->
+            <div class="feature-card" id="affordability">
+                <h3 class="feature-name">
+                    Affordability
+                </h3>
+                <p class="feature-details">
+                    Provide high-quality parking solutions at an affordable price point, making safe and convenient
+                    parking accessible to a wider range of drivers.
+                </p>
+            </div>
+            <!-- Card ends here! -->
+            <!-- Card begins here: -->
+            <div class="feature-card" id="industry-partnerships">
+                <h3 class="feature-name">
+                    Industry Partnerships
+                </h3>
+                <p class="feature-details">
+                    Collaborate with trusted businesses and institutions to offer verified parking partnerships and
+                    dedicated spaces, adding reliability and credibility to our services.
+                </p>
+            </div>
+            <!-- Card ends here! -->
+            <!-- Card begins here: -->
+            <div class="feature-card" id="responsive-support">
+                <h3 class="feature-name">
+                    Responsive Support
+                </h3>
+                <p class="feature-details">
+                    Provide exceptional customer support and assistance to drivers and partners, ensuring a smooth and
+                    reliable parking experience at every step.
+                </p>
+            </div>
+            <!-- Card ends here! -->
+            <!-- Card begins here: -->
+            <div class="feature-card" id="analytics-and-insights">
+                <h3 class="feature-name">
+                    Analytics and Insights
+                </h3>
+                <p class="feature-details">
+                    Offer detailed usage tracking and analytics to help drivers and partners monitor parking patterns
+                    and make informed, data-driven decisions.
+                </p>
+            </div>
+            <!-- Card ends here! -->
+        </div>
+    </div>
+    <hr>
+
+
+    <div class="testimonials">
+        <div id="testimonial-heading">
+            <h2>
+                What Others Say About Us
+            </h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Card Starts Here: -->
+            <div class="testimonial-card">
+                <p class="user-comment">
+                    “The Automated Parking Company transformed my daily commute! Their smart system and real-time
+                    updates make parking effortless and stress-free. Highly recommended for anyone looking for
+                    convenient and reliable parking solutions.”
+                </p>
+                <a href="#" class="user-name">Sarah Johnson</a>
+                <p class="user-about">
+                    Legal Associate, Ben Jerry & Associates
+                </p>
+            </div>
+            <!-- Card Ends Here. -->
+            <!-- Card Starts Here: -->
+            <div class="testimonial-card">
+                <p class="user-comment">
+                    “The Automated Parking Company transformed our family's daily routine. Safe locations, easy access,
+                    and real-time tracking features are invaluable for busy parents and commuters alike.”
+                </p>
+                <a href="#" class="user-name">Mark Davis</a>
+                <p class="user-about">
+                    Parent
+                </p>
+            </div>
+            <!-- Card Ends Here. -->
+            <!-- Card Starts Here: -->
+            <div class="testimonial-card">
+                <p class="user-comment">
+                    “The Automated Parking Company is a true game-changer! Flexible parking options, personalized
+                    services, and excellent customer support have become integral to our city's daily commute.”
+                </p>
+                <a href="#" class="user-name">Dr. James Carter</a>
+                <p class="user-about">
+                    Systems Administrator
+                </p>
+            </div>
+            <!-- Card Ends Here. -->
+        </div>
+    </div>
+
+    <div class="about-us-container">
+        <div class="newsletter-image">
+            <img src="/static/images/about us.avif" alt="newsletter mailbox image">
+        </div>
+        <div class="newsletter-content">
+            <h2 id="newsletter-heading">
+                About Us
+            </h2>
+            <p id="newsletter-advert">
+                Set up in 1979, Secure Parking is now a global leader in the car parking industry with an international
+                presence in 12 countries like Australia, New Zealand, Indonesia, China, Singapore, Malaysia, UK, UAE,
+                Lebanon, Cambodia, USA. Globally, over 2000 car parks and 2.5 million parking spaces are under
+                operation. Secure Parking was set up in India 16 years ago and has offices in Mumbai, Delhi NCR and
+                Bengaluru.
+                In India we manage over 250,000 parking bays at shopping malls, offices, commercial complexes,
+                hospitals, and public car parks (municipal, metro, rail). Our philosophy has been to maintain a careful
+                balance between increasing revenue and providing the highest levels of customer service.
+            </p>
+
+            <form id="get-user-mail">
+                <button>Know More</button>
+            </form>
+
+            <div class="newsletter-legal-terms">
+                <p>
+                    By signing up to our newsletter you agree to our
+                    <a href="#" id="terms-of-service">
+                        Terms of Service
+                    </a>and
+                    <a href="#" id="privacy-policy">
+                        Privacy policy
+                    </a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <footer>
+        <div class="bottom-footer">
+            <p>
+                © 2025 - Present The Automated Parking Company. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

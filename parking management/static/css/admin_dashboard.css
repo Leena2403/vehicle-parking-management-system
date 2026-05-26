@@ -1,0 +1,59 @@
+/* admin css */body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cce6ff;
+    padding: 10px 20px;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    flex: 1;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th,
+td {
+    border: 1px solid #002d81;
+    padding: 8px;
+}
+
+th {
+    background-color: #c4f1e1;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#edit-profile-button button {
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    border: none;
+}

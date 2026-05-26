@@ -1,0 +1,50 @@
+{% extends "base_admin.html" %}
+
+{% block title %}View/Delete Parking Spot{% endblock %}
+
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px; text-align: center;">
+    View/Delete Parking Spot
+</h3>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">{{ message }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<table border="1" cellpadding="5" style="margin: 20px auto;">
+    <tr>
+        <td><strong>ID:</strong></td>
+        <td>{{ spot.id }}</td>
+    </tr>
+    <tr>
+        <td><strong>Status:</strong></td>
+        <td>
+            <a href="{{ url_for('main_routes.admin_parking_spot_details', spot_id=spot.id) }}">
+                <button class="btn btn-{{ 'success' if spot.status == 'A' else 'danger' }}">
+                    {{ spot.status }}
+                </button>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Lot ID:</strong></td>
+        <td>{{ spot.lot_id }}</td>
+    </tr>
+</table>
+
+{% if spot.status == 'A' %}
+<form action="{{ url_for('main_routes.view_parking_spot', spot_id=spot.id) }}" method="POST" style="text-align:center;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{{ url_for('main_routes.admin_home') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% else %}
+<div style="text-align:center; margin-top: 20px;">
+    <p class="text-muted">This spot is currently occupied and cannot be deleted.</p>
+    <a href="{{ url_for('main_routes.admin_home') }}" class="btn btn-secondary">Back</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "parking_app-23f1001357",
+		"git.ignoreLimitWarning": true,
+		"sqlite3-editor.codeLens.hideExecuteAndSelectButtons": true
+	}
+}

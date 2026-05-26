@@ -1,0 +1,74 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h3 class="text-center bg-light py-2 mb-4 border">Parking Lots</h3>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        {% for lot in lots %}
+        <div class="col-md-4 mb-4">
+            <div class="card p-3">
+                <h5>{{ lot.prime_location_name }}</h5>
+                <p>{{ lot.address }}, {{ lot.pin_code }}</p>
+                <p><strong>Price:</strong> ₹{{ lot.price }}/hr</p>
+                <div class="mb-1">
+                    <a href="{{ url_for('main_routes.edit_parking_lot', lot_id=lot.id) }}">
+                        <button>Edit</button>
+                    </a> |
+
+                    <form action="{{ url_for('main_routes.delete_parking_lot', lot_id=lot.id) }}" method="POST"
+                        style="display:inline;">
+                        <button type="submit" class="btn btn-link text-danger p-0 m-0 align-baseline">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+
+
+                {% set occupied = lot.spots | selectattr("status", "equalto", "O") | list | length %}
+                <div class="text-success mb-2">(Occupied: {{ occupied }}/{{ lot.maximum_number_of_spots }})</div>
+
+
+                <hr>
+                <div class="d-flex flex-wrap" style="gap: 5px;">
+                    {% for spot in lot.spots %}
+                    <a href="{{ url_for('main_routes.view_parking_spot', spot_id=spot.id) }}"
+                        style="text-decoration: none;">
+                        {% if spot.status == 'A' %}
+                        <span class="border rounded px-2 py-1 bg-success text-white">A</span>
+                        {% else %}
+                        <span class="border rounded px-2 py-1 bg-danger text-white">O</span>
+                        {% endif %}
+                    </a>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+<div class="text-center mt-4">
+    <a href="/add_lot" class="btn btn-outline-primary">+ Add Lot</a>
+</div>
+
+</div>
+
+{% endblock %}

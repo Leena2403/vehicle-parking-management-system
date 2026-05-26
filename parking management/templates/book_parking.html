@@ -1,0 +1,38 @@
+{% extends "base_user.html" %}
+
+{% block title %}Book Parking Spot{% endblock %}
+
+{% block content %}
+<h3 style="background-color: rgb(33, 54, 117); color: white; padding: 5px;">
+    Book Parking Spot
+</h3>
+
+
+<form action="{{ url_for('main_routes.book_lot') }}" method="POST">
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Spot ID:</td>
+            <td><input type="text" name="spot_id" value="{{ spot.id }}" readonly></td>
+        </tr>
+        <tr>
+            <td>Lot ID:</td>
+            <td><input type="text" name="lot_id" value="{{ lot.id }}" readonly></td>
+        </tr>
+        <tr>
+            <td>User ID:</td>
+            <td><input type="text" name="user_id" value="{{ user_id }}" readonly></td>
+        </tr>
+        <tr>
+            <td>Vehicle Number:</td>
+            <td><input type="text" name="vehicle_num" required></td>
+        </tr>
+    </table>
+
+    <br>
+    <button type="submit" style="background-color: rgb(34, 127, 150); color: white; padding: 5px;">Reserve</button>
+    <a href="{{ url_for('main_routes.user_dashboard') }}">
+        <button type="button">Cancel</button>
+    </a>
+</form>
+
+{% endblock %}
